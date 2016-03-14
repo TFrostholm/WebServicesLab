@@ -120,12 +120,76 @@ namespace WSClientConsole
 
         private static void Exercise3()
         {
-            throw new NotImplementedException();
+            HttpClientHandler handler = new HttpClientHandler();
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                try
+                {
+                    var response = client.GetAsync("api/Hotels").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        IEnumerable<Hotel> hotelData = response.Content.ReadAsAsync<IEnumerable<Hotel>>().Result;
+
+                        var detailsRoskilde =
+                        from b in hotelData
+                        where b.HotelAddress.Contains("Roskilde")
+                        select b;
+
+                        foreach (var item in detailsRoskilde)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        Console.WriteLine("\n");
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error");
+                }
+            }
         }
 
         private static void Exercise4()
         {
-            throw new NotImplementedException();
+            HttpClientHandler handler = new HttpClientHandler();
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                try
+                {
+                    var response = client.GetAsync("api/Hotels").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var response1 = client.GetAsync("api/Room").Result;
+                        if (response1.IsSuccessStatusCode)
+                        {
+                            IEnumerable<Hotel> hotelData = response.Content.ReadAsAsync<IEnumerable<Hotel>>().Result;
+                            IEnumerable<Room> roomData = response1.Content.ReadAsAsync<IEnumerable<Room>>().Result;
+
+                            var allRoomsRoskilde =
+                                from a in hotelData
+                                where a.HotelAddress.Contains("Roskilde")
+                                join b in roomData on a.Hotel_No equals b.Hotel_No
+                                select new {a, b};
+
+                            foreach (var v in allRoomsRoskilde)
+                            {
+                                Console.WriteLine("Hotel: {0}\t {1} \t {2}", v.a.Name, v.a.HotelAddress, v.b.Room_No);
+                            }
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error");
+                }
+            }
         }
 
         private static void Exercise5()
