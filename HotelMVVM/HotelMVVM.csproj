@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Handler\HotelHandler.cs" />
     <Compile Include="Model\Hotel.cs" />
     <Compile Include="Model\HotelCatalogSingleton.cs" />
     <Compile Include="Persistency\PersistenceFacade.cs" />
@@ -132,7 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="Handler\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\HotelPage.xaml">

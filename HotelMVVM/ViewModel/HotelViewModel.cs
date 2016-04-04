@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using HotelMVVM.Annotations;
+using HotelMVVM.Handler;
 using HotelMVVM.Model;
 
 namespace HotelMVVM.ViewModel
@@ -8,11 +9,17 @@ namespace HotelMVVM.ViewModel
     public class HotelViewModel:INotifyPropertyChanged
     {
         public HotelCatalogSingleton HotelCatalogSingleton { get; set; }
+        public Handler.HotelHandler HotelHandler { get; set; }
+
+
         public HotelViewModel()
         {
             HotelCatalogSingleton = HotelCatalogSingleton.Instance;
-            //Create an instance of the newHotel
+            //Creates an instance of the newHotel
             _newHotel = new Hotel();
+
+            //Creates an instance of HotelHandler
+            HotelHandler = new HotelHandler(this);
 
         }
 

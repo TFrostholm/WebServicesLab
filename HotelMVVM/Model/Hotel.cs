@@ -6,13 +6,13 @@
 
         public string Name { get; set; }
 
-        public string Address { get; set; }
+        public string HotelAddress { get; set; }
 
         public Hotel(int hotelNo, string name, string address)
         {
             Hotel_No = hotelNo;
             Name = name;
-            Address = address;
+            HotelAddress = address;
         }
 
         public Hotel()
@@ -22,7 +22,7 @@
 
         public override string ToString()
         {
-            return string.Format("Hotelno {0} Name {1} Address {2}", Hotel_No, Name, Address);
+            return string.Format("Hotelno {0} Name {1} Address {2}", Hotel_No, Name, HotelAddress);
         }
     }
 }
