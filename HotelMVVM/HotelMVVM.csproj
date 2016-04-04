@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Hotel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\HotelPage.xaml.cs">
       <DependentUpon>HotelPage.xaml</DependentUpon>
@@ -128,7 +129,6 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="Handler\" />
-    <Folder Include="Model\" />
     <Folder Include="Persistency\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
