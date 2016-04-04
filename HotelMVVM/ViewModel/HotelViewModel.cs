@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using HotelMVVM.Annotations;
+using HotelMVVM.Common;
 using HotelMVVM.Handler;
 using HotelMVVM.Model;
 
@@ -8,6 +10,8 @@ namespace HotelMVVM.ViewModel
 {
     public class HotelViewModel:INotifyPropertyChanged
     {
+        public ICommand _createHotelCommand;
+
         public HotelCatalogSingleton HotelCatalogSingleton { get; set; }
         public Handler.HotelHandler HotelHandler { get; set; }
 
@@ -20,6 +24,9 @@ namespace HotelMVVM.ViewModel
 
             //Creates an instance of HotelHandler
             HotelHandler = new HotelHandler(this);
+
+            //Creates an instance of the RelayCommand
+            CreateHotelCommand = new RelayCommand(HotelHandler.CreateHotel);
 
         }
 
@@ -34,6 +41,18 @@ namespace HotelMVVM.ViewModel
             set
             {
                 _newHotel = value; OnPropertyChanged();
+            }
+        }
+
+        public ICommand CreateHotelCommand
+        {
+            get
+            {
+                return _createHotelCommand;
+            }
+            set
+            {
+                _createHotelCommand = value;
             }
         }
 
