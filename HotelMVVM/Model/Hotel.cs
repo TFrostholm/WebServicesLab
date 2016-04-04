@@ -15,6 +15,11 @@
             Address = address;
         }
 
+        public Hotel()
+        {
+            
+        }
+
         public override string ToString()
         {
             return string.Format("Hotelno {0} Name {1} Address {2}", Hotel_No, Name, Address);

@@ -11,6 +11,8 @@ namespace HotelMVVM.ViewModel
         public HotelViewModel()
         {
             HotelCatalogSingleton = HotelCatalogSingleton.Instance;
+            //Create an instance of the newHotel
+            _newHotel = new Hotel();
 
         }
 

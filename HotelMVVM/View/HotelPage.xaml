@@ -19,7 +19,7 @@
             HorizontalAlignment="Left" 
             Margin="610,95,0,0" 
             TextWrapping="Wrap" 
-            Text="" 
+            Text="{Binding NewHotel.Hotel_No, Mode=TwoWay}" 
             VerticalAlignment="Top" 
             Header="Hotel No:" 
             Width="250">
@@ -29,7 +29,7 @@
             HorizontalAlignment="Left" 
             Margin="610,205,0,0" 
             TextWrapping="Wrap" 
-            Text="" 
+            Text="{Binding NewHotel.Name, Mode=TwoWay}" 
             VerticalAlignment="Top" 
             Header="Name:"
             Width="250">
@@ -39,7 +39,7 @@
             HorizontalAlignment="Left" 
             Margin="610,305,0,0" 
             TextWrapping="Wrap" 
-            Text="" 
+            Text="{Binding NewHotel.Address, Mode=TwoWay}" 
             VerticalAlignment="Top" 
             Header="Address:"
             Width="250">
