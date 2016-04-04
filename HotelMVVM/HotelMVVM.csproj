@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Handler\HotelHandler.cs" />
     <Compile Include="Model\Hotel.cs" />
     <Compile Include="Model\HotelCatalogSingleton.cs" />
@@ -131,9 +132,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="View\HotelPage.xaml">
       <SubType>Designer</SubType>
