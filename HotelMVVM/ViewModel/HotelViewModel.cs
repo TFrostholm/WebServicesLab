@@ -14,6 +14,20 @@ namespace HotelMVVM.ViewModel
 
         }
 
+        private Hotel _newHotel;
+
+        public Hotel NewHotel
+        {
+            get
+            {
+                return _newHotel;
+            }
+            set
+            {
+                _newHotel = value; OnPropertyChanged();
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
