@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using WebServiceLab;
 
 namespace WSClientConsole
@@ -199,7 +200,48 @@ namespace WSClientConsole
 
         private static void Exercise6()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Exercise 6");
+            const string ServerUrl = "http://localhost:40037";
+            Console.WriteLine("Insert (HTTP Post) a new hotel eg number 200");
+            Console.Write("Enter number of new hotel:");
+            int myNewHotelNo = int.Parse(Console.ReadLine());
+            //First we create the new hotel object
+            var myNewHotel = new Hotel()
+            {
+                Hotel_No = myNewHotelNo,
+                HotelAddress = "Fiddlerhotel 1",
+                Name = "Fiddler hotel",
+                Room = new List<Room>()
+            };
+
+            //The we need to serialize it
+            string newHoteljson = JsonConvert.SerializeObject(myNewHotel);
+            //Create the content we will send in the Http post request 
+            var content = new StringContent(newHoteljson, Encoding.UTF8, "application/json");
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = client.PostAsync("api/hotels", content).Result;
+                Console.WriteLine("PostAsync");
+                Console.WriteLine("Status code " + response.StatusCode);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //Success , Now we can get the hotel by a Http post
+                    var responseHotel = client.GetAsync("api/hotels/" + myNewHotelNo).Result;
+                    Console.WriteLine("GetAsync");
+                    Console.WriteLine("Status code " + response.StatusCode);
+
+                    if (responseHotel.IsSuccessStatusCode)
+                    {
+                        var hotel200 = responseHotel.Content.ReadAsAsync<Hotel>().Result;
+                        Console.WriteLine(hotel200.ToString());
+                    }
+                }
+            }
+
         }
 
         private static void Exercise7()

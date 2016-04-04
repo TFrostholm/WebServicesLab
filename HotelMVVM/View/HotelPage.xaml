@@ -39,7 +39,7 @@
             HorizontalAlignment="Left" 
             Margin="610,305,0,0" 
             TextWrapping="Wrap" 
-            Text="{Binding NewHotel.Address, Mode=TwoWay}" 
+            Text="{Binding NewHotel.HotelAddress, Mode=TwoWay}" 
             VerticalAlignment="Top" 
             Header="Address:"
             Width="250">

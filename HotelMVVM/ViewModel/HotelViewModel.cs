@@ -34,26 +34,14 @@ namespace HotelMVVM.ViewModel
 
         public Hotel NewHotel
         {
-            get
-            {
-                return _newHotel;
-            }
-            set
-            {
-                _newHotel = value; OnPropertyChanged();
-            }
+            get { return _newHotel; }
+            set { _newHotel = value; OnPropertyChanged(); }
         }
 
         public ICommand CreateHotelCommand
         {
-            get
-            {
-                return _createHotelCommand;
-            }
-            set
-            {
-                _createHotelCommand = value;
-            }
+            get { return _createHotelCommand; }
+            set { _createHotelCommand = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
