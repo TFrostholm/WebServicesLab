@@ -99,6 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Hotel.cs" />
+    <Compile Include="Model\HotelCatalogSingleton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\HotelPage.xaml.cs">
       <DependentUpon>HotelPage.xaml</DependentUpon>
