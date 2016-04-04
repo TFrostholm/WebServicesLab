@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="Model\Hotel.cs" />
     <Compile Include="Model\HotelCatalogSingleton.cs" />
+    <Compile Include="Persistency\PersistenceFacade.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\HotelViewModel.cs" />
@@ -132,7 +133,6 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="Handler\" />
-    <Folder Include="Persistency\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\HotelPage.xaml">

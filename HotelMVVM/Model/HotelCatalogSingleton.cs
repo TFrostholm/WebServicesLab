@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using HotelMVVM.Persistency;
 
 namespace HotelMVVM.Model
 {
@@ -15,11 +16,13 @@ namespace HotelMVVM.Model
 
         private HotelCatalogSingleton()
         {
-            Hotels = new ObservableCollection<Hotel>();
-            Hotel h1 = new Hotel(101, "London Hotel", "London Boulevard");
-            Hotel h2 = new Hotel(102, "Berlin Hotel", "Berliner garten");
-            Hotels.Add(h1);
-            Hotels.Add(h2);
+            //Hotels = new ObservableCollection<Hotel>();
+            //Hotel h1 = new Hotel(101, "London Hotel", "London Boulevard");
+            //Hotel h2 = new Hotel(102, "Berlin Hotel", "Berliner garten");
+            //Hotels.Add(h1);
+            //Hotels.Add(h2);
+
+            Hotels = new ObservableCollection<Hotel>(new PersistenceFacade().GetHotels());
         }
 
         public void Add(int Hotel_No, string Name, string Address)
