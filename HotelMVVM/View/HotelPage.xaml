@@ -5,9 +5,59 @@
     xmlns:local="using:HotelMVVM.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:HotelMVVM.ViewModel"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <viewModel:HotelViewModel/>
+    </Page.DataContext>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="500" Margin="115,85,0,0" VerticalAlignment="Top" Width="400" ItemsSource="{Binding HotelCatalogSingleton.Hotels}"/>
+        <TextBox 
+            x:Name="HotelNoTextBox" 
+            HorizontalAlignment="Left" 
+            Margin="610,95,0,0" 
+            TextWrapping="Wrap" 
+            Text="" 
+            VerticalAlignment="Top" 
+            Header="Hotel No:" 
+            Width="250">
+        </TextBox>
+        <TextBox 
+            x:Name="NameTextBox" 
+            HorizontalAlignment="Left" 
+            Margin="610,205,0,0" 
+            TextWrapping="Wrap" 
+            Text="" 
+            VerticalAlignment="Top" 
+            Header="Name:"
+            Width="250">
+        </TextBox>
+        <TextBox 
+            x:Name="AddressTextBox" 
+            HorizontalAlignment="Left" 
+            Margin="610,305,0,0" 
+            TextWrapping="Wrap" 
+            Text="" 
+            VerticalAlignment="Top" 
+            Header="Address:"
+            Width="250">
+        </TextBox>
+        <Button x:Name="CreateButton" 
+                Content="Create" 
+                HorizontalAlignment="Left" 
+                Margin="610,415,0,0" 
+                VerticalAlignment="Top"/>
+        <Button x:Name="DeleteButton" 
+                Content="Delete" 
+                HorizontalAlignment="Left" 
+                Margin="707,415,0,0" 
+                VerticalAlignment="Top"/>
+        <Button x:Name="UpdateButton" 
+                Content="Update" 
+                HorizontalAlignment="Left" 
+                Margin="797,415,0,0" 
+                VerticalAlignment="Top"/>
     </Grid>
 </Page>
