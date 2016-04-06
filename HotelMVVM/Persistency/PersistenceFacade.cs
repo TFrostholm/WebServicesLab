@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using Windows.UI.Popups;
 using HotelMVVM.Model;
+using HotelMVVM.ViewModel;
 using Newtonsoft.Json;
 
 namespace HotelMVVM.Persistency
@@ -58,7 +59,28 @@ namespace HotelMVVM.Persistency
                 try
                 {
                     string postBody = JsonConvert.SerializeObject(hotel);
-                    var response = client.PostAsync("api/Hotels", new StringContent(postBody, Encoding.UTF8, "application/json")).Result;
+                    var response =
+                        client.PostAsync("api/Hotels", new StringContent(postBody, Encoding.UTF8, "application/json"))
+                            .Result;
+                }
+                catch (Exception ex)
+                {
+                    new MessageDialog(ex.Message).ShowAsync();
+                }
+            }
+
+        }
+
+        public void RemoveHotel(Hotel hotel)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                try
+                {
+                    var response = client.DeleteAsync("api/Hotels" + hotel.Hotel_No).Result;
                 }
                 catch (Exception ex)
                 {

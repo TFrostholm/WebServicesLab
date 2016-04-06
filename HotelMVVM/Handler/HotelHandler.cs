@@ -15,7 +15,6 @@ namespace HotelMVVM.Handler
 
         public void CreateHotel()
         {
-            //HotelViewModel.HotelCatalogSingleton.Add(HotelViewModel.NewHotel.Hotel_No, HotelViewModel.NewHotel.Name, HotelViewModel.NewHotel.HotelAddress);
             Hotel hotel = new Hotel();
             hotel.Hotel_No = HotelViewModel.NewHotel.Hotel_No;
             hotel.Name = HotelViewModel.NewHotel.Name;
@@ -34,5 +33,7 @@ namespace HotelMVVM.Handler
             HotelViewModel.NewHotel.Name = "";
             HotelViewModel.NewHotel.HotelAddress = "";
         }
+
+
     }
 }

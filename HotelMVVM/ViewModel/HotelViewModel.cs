@@ -11,6 +11,7 @@ namespace HotelMVVM.ViewModel
     public class HotelViewModel:INotifyPropertyChanged
     {
         public ICommand _createHotelCommand;
+        public ICommand _deleteHotelCommand;
 
         public HotelCatalogSingleton HotelCatalogSingleton { get; set; }
         public Handler.HotelHandler HotelHandler { get; set; }
@@ -42,6 +43,11 @@ namespace HotelMVVM.ViewModel
         {
             get { return _createHotelCommand; }
             set { _createHotelCommand = value; }
+        }
+        public ICommand DeleteHotelCommand
+        {
+            get { return _deleteHotelCommand; }
+            set { _deleteHotelCommand = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
