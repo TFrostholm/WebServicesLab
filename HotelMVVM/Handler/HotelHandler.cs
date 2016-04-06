@@ -34,6 +34,17 @@ namespace HotelMVVM.Handler
             HotelViewModel.NewHotel.HotelAddress = "";
         }
 
+        public void DeleteHotel()
+        {
+            new PersistenceFacade().RemoveHotel(HotelViewModel.SelectedHotel);
 
+            var hotels = new PersistenceFacade().GetHotels();
+
+            HotelViewModel.HotelCatalogSingleton.Hotels.Clear();
+            foreach (var hotel1 in hotels)
+            {
+                HotelViewModel.HotelCatalogSingleton.Hotels.Add(hotel1);
+            }
+        }
     }
 }

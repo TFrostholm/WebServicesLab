@@ -80,14 +80,13 @@ namespace HotelMVVM.Persistency
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
                 {
-                    var response = client.DeleteAsync("api/Hotels" + hotel.Hotel_No).Result;
+                    var response = client.DeleteAsync("api/Hotels/" + hotel.Hotel_No).Result;
                 }
                 catch (Exception ex)
                 {
                     new MessageDialog(ex.Message).ShowAsync();
                 }
             }
-
         }
     }
 }

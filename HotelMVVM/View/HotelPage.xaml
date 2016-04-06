@@ -13,7 +13,15 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="500" Margin="115,85,0,0" VerticalAlignment="Top" Width="400" ItemsSource="{Binding HotelCatalogSingleton.Hotels}"/>
+        <ListView 
+            x:Name="listView" 
+            HorizontalAlignment="Left" 
+            Height="500" 
+            Margin="115,85,0,0" 
+            VerticalAlignment="Top" 
+            Width="400" 
+            ItemsSource="{Binding HotelCatalogSingleton.Hotels}"
+            SelectedItem="{Binding SelectedHotel, Mode=TwoWay}" />
         <TextBox 
             x:Name="HotelNoTextBox" 
             HorizontalAlignment="Left" 
@@ -48,12 +56,14 @@
                 Content="Create" 
                 HorizontalAlignment="Left" 
                 Margin="610,415,0,0" 
-                VerticalAlignment="Top" Command="{Binding CreateHotelCommand}"/>
+                VerticalAlignment="Top" 
+                Command="{Binding CreateHotelCommand}"/>
         <Button x:Name="DeleteButton" 
                 Content="Delete" 
                 HorizontalAlignment="Left" 
                 Margin="707,415,0,0" 
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top"
+                Command="{Binding DeleteHotelCommand}"/>
         <Button x:Name="UpdateButton" 
                 Content="Update" 
                 HorizontalAlignment="Left" 

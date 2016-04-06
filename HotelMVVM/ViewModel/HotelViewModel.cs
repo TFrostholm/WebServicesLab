@@ -26,9 +26,10 @@ namespace HotelMVVM.ViewModel
             //Creates an instance of HotelHandler
             HotelHandler = new HotelHandler(this);
 
-            //Creates an instance of the RelayCommand
+            //Creates instances of the RelayCommand
             CreateHotelCommand = new RelayCommand(HotelHandler.CreateHotel);
 
+            DeleteHotelCommand = new RelayCommand(HotelHandler.DeleteHotel);
         }
 
         private Hotel _newHotel;
@@ -49,6 +50,8 @@ namespace HotelMVVM.ViewModel
             get { return _deleteHotelCommand; }
             set { _deleteHotelCommand = value; }
         }
+
+        public static Hotel SelectedHotel { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
