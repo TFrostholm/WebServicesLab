@@ -10,8 +10,6 @@ namespace HotelMVVM.ViewModel
 {
     public class HotelViewModel:INotifyPropertyChanged
     {
-        public ICommand _createHotelCommand;
-        public ICommand _deleteHotelCommand;
 
         public HotelCatalogSingleton HotelCatalogSingleton { get; set; }
         public Handler.HotelHandler HotelHandler { get; set; }
@@ -30,9 +28,15 @@ namespace HotelMVVM.ViewModel
             CreateHotelCommand = new RelayCommand(HotelHandler.CreateHotel);
 
             DeleteHotelCommand = new RelayCommand(HotelHandler.DeleteHotel);
+
+            UpdateHotelCommand = new RelayCommand(HotelHandler.EditHotel);
         }
 
         private Hotel _newHotel;
+
+        public ICommand _createHotelCommand;
+        public ICommand _deleteHotelCommand;
+        public ICommand _updateHotelCommand;
 
         public Hotel NewHotel
         {
@@ -49,6 +53,12 @@ namespace HotelMVVM.ViewModel
         {
             get { return _deleteHotelCommand; }
             set { _deleteHotelCommand = value; }
+        }
+
+        public ICommand UpdateHotelCommand
+        {
+            get { return _updateHotelCommand; }
+            set { _updateHotelCommand = value; }
         }
 
         public static Hotel SelectedHotel { get; set; }

@@ -88,6 +88,27 @@ namespace HotelMVVM.Persistency
                 }
             }
         }
+
+        public void UpdateHotel(Hotel hotel)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                try
+                {
+                    string postBody = JsonConvert.SerializeObject(hotel);
+                    var response =
+                        client.PostAsync("api/Hotels/" + hotel.Name,
+                            new StringContent(postBody, Encoding.UTF8, "application/json")).Result;
+                }
+                catch (Exception ex)
+                {
+                    new MessageDialog(ex.Message).ShowAsync();
+                }
+            }
+        }
     }
 }
 

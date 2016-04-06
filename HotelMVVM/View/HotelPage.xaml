@@ -68,6 +68,7 @@
                 Content="Update" 
                 HorizontalAlignment="Left" 
                 Margin="797,415,0,0" 
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top"
+                Command="{Binding UpdateHotelCommand}"/>
     </Grid>
 </Page>

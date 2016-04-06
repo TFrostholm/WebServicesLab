@@ -46,5 +46,27 @@ namespace HotelMVVM.Handler
                 HotelViewModel.HotelCatalogSingleton.Hotels.Add(hotel1);
             }
         }
+
+        public void EditHotel()
+        {
+            Hotel hotel = new Hotel();
+            hotel.Hotel_No = HotelViewModel.NewHotel.Hotel_No;
+            hotel.Name = HotelViewModel.NewHotel.Name;
+            hotel.HotelAddress = HotelViewModel.NewHotel.HotelAddress;
+
+            new PersistenceFacade().UpdateHotel(hotel);
+
+            var hotels = new PersistenceFacade().GetHotels();
+
+            HotelViewModel.HotelCatalogSingleton.Hotels.Clear();
+            foreach (var hotel1 in hotels)
+            {
+                HotelViewModel.HotelCatalogSingleton.Hotels.Add(hotel1);
+            }
+
+            HotelViewModel.NewHotel.Hotel_No = 0;
+            HotelViewModel.NewHotel.Name = "";
+            HotelViewModel.NewHotel.HotelAddress = "";
+        }
     }
 }
