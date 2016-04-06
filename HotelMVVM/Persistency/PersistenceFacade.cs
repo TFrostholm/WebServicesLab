@@ -11,6 +11,9 @@ using Newtonsoft.Json;
 
 namespace HotelMVVM.Persistency
 {
+    /// <summary>
+    ///  Works as a facade for the database and is responsible for connecting to the database
+    /// </summary>
     class PersistenceFacade
     {
         const string ServerUrl = "http://localhost:50000";
@@ -22,7 +25,10 @@ namespace HotelMVVM.Persistency
             handler.UseDefaultCredentials = true;
         }
 
-
+        /// <summary>
+        /// Gets all hotels currently in the database
+        /// </summary>
+        /// <returns>Returns all hotels in list</returns>
         public List<Hotel> GetHotels()
         {
             using (var client = new HttpClient(handler))
@@ -49,6 +55,10 @@ namespace HotelMVVM.Persistency
             }
         }
 
+        /// <summary>
+        /// Saves a new hotel to the database
+        /// </summary>
+        /// <param name="hotel">Pass in hotel that needs to be saved</param>
         public void SaveHotel(Hotel hotel)
         {
             using (var client = new HttpClient(handler))
@@ -71,6 +81,10 @@ namespace HotelMVVM.Persistency
 
         }
 
+        /// <summary>
+        /// Deletes a hotel from the database
+        /// </summary>
+        /// <param name="hotel">Pass in hotel that needs to be deleted</param>
         public void RemoveHotel(Hotel hotel)
         {
             using (var client = new HttpClient())
@@ -89,6 +103,10 @@ namespace HotelMVVM.Persistency
             }
         }
 
+        /// <summary>
+        /// Updates existing hotel in the database
+        /// </summary>
+        /// <param name="hotel">Pass in hotel that needs to be updated</param>
         public void UpdateHotel(Hotel hotel)
         {
             using (var client = new HttpClient())
