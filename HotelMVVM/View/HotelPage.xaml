@@ -13,18 +13,6 @@
         <viewModel:HotelViewModel/>
     </Page.DataContext>
 
-    <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton Label="Rooms" Icon="Switch">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction TargetPage="HotelMVVM.View.RoomPage"/>
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </AppBarButton>
-        </CommandBar>
-    </Page.BottomAppBar>
-
 
     <Grid Background="White">
         <ListView 
