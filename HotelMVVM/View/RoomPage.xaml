@@ -61,7 +61,7 @@
 			HorizontalAlignment="Left" 
 			Margin="610,460,0,0" 
 			VerticalAlignment="Top" 
-			Command="{Binding CreateHotelCommand}"/>
+			Command="{Binding CreateRoomCommand}"/>
         <Button x:Name="DeleteButton" 
 			Content="Delete" 
 			HorizontalAlignment="Left" 

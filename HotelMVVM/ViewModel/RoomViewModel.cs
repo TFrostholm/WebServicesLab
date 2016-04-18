@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using HotelMVVM.Common;
 using HotelMVVM.Handler;
 using HotelMVVM.Model;
 
@@ -23,6 +24,9 @@ namespace HotelMVVM.ViewModel
 
             // New instance of RoomHandler
             RoomHandler = new Handler.RoomHandler(this);
+
+            // Creates instances of relayCommand
+            CreateRoomCommand = new RelayCommand(RoomHandler.CreateRoom);
         }
 
         private Room _newRoom;
