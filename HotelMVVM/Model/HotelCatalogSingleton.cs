@@ -20,13 +20,11 @@ namespace HotelMVVM.Model
 
         private HotelCatalogSingleton()
         {
-            //Hotels = new ObservableCollection<Hotel>();
-            //Hotel h1 = new Hotel(101, "London Hotel", "London Boulevard");
-            //Hotel h2 = new Hotel(102, "Berlin Hotel", "Berliner garten");
-            //Hotels.Add(h1);
-            //Hotels.Add(h2);
-
+            // Getting all hotels into the observable collection
             Hotels = new ObservableCollection<Hotel>(new PersistenceFacade().GetHotels());
+
+            // Getting all rooms into the observable collection
+            Rooms = new ObservableCollection<Room>(new PersistenceFacade().GetRooms());
         }
 
         public void Add(int Hotel_No, string Name, string Address)
