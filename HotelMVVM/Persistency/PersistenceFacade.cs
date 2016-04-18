@@ -107,6 +107,7 @@ namespace HotelMVVM.Persistency
         /// Updates existing hotel in the database
         /// </summary>
         /// <param name="hotel">Pass in hotel that needs to be updated</param>
+        // TODO: Not sure this is working correctly
         public void UpdateHotel(Hotel hotel)
         {
             using (var client = new HttpClient())
@@ -118,7 +119,7 @@ namespace HotelMVVM.Persistency
                 {
                     string postBody = JsonConvert.SerializeObject(hotel);
                     var response =
-                        client.PostAsync("api/Hotels/" + hotel.Name,
+                        client.PutAsync("api/Hotels/" + hotel.Hotel_No,
                             new StringContent(postBody, Encoding.UTF8, "application/json")).Result;
                 }
                 catch (Exception ex)

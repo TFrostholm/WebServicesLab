@@ -47,10 +47,11 @@ namespace HotelMVVM.Handler
             }
         }
 
+        //TODO: I need to have a look at this
         public void EditHotel()
         {
             Hotel hotel = new Hotel();
-            hotel.Hotel_No = HotelViewModel.NewHotel.Hotel_No;
+            hotel.Hotel_No = HotelViewModel.SelectedHotel.Hotel_No;
             hotel.Name = HotelViewModel.NewHotel.Name;
             hotel.HotelAddress = HotelViewModel.NewHotel.HotelAddress;
 
