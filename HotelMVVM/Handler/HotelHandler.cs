@@ -47,7 +47,7 @@ namespace HotelMVVM.Handler
             }
         }
 
-        //TODO: I need to have a look at this
+
         public void EditHotel()
         {
             Hotel hotel = new Hotel();

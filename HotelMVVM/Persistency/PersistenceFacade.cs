@@ -107,7 +107,6 @@ namespace HotelMVVM.Persistency
         /// Updates existing hotel in the database
         /// </summary>
         /// <param name="hotel">Pass in hotel that needs to be updated</param>
-        // TODO: Not sure this is working correctly
         public void UpdateHotel(Hotel hotel)
         {
             using (var client = new HttpClient())
@@ -133,7 +132,6 @@ namespace HotelMVVM.Persistency
         /// <summary>
         /// Gets all rooms from all hotels
         /// </summary>
-        /// <returns></returns>
         public List<Room> GetRooms()
         {
             using (var client = new HttpClient(handler))
