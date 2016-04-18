@@ -7,12 +7,16 @@ namespace HotelMVVM.Model
     {
         private static HotelCatalogSingleton instance = new HotelCatalogSingleton();
 
+
+
         public static HotelCatalogSingleton Instance
         {
             get { return instance; }
         }
 
         public ObservableCollection<Hotel> Hotels { get; set; }
+
+        public ObservableCollection<Room> 
 
         private HotelCatalogSingleton()
         {

@@ -26,7 +26,7 @@
     </Page.BottomAppBar>
 
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="White">
         <ListView 
 			x:Name="listView" 
 			HorizontalAlignment="Left" 
