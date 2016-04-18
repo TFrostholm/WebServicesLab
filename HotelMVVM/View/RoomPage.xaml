@@ -7,6 +7,18 @@
     xmlns:ViewModel="using:HotelMVVM.ViewModel"
     x:Class="HotelMVVM.View.RoomPage"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <ViewModel:RoomViewModel/>
+    </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    <Grid Background="LightGoldenrodYellow">
+        <ListView 
+			x:Name="listViewRooms" 
+			HorizontalAlignment="Left" 
+			Height="500" 
+			Margin="115,85,0,0" 
+			VerticalAlignment="Top" 
+			Width="400" 
+            ItemsSource="{Binding HotelCatalogSingleton.Rooms}"/>
+    </Grid>
 </Page>
