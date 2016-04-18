@@ -16,7 +16,7 @@ namespace HotelMVVM.Model
 
         public ObservableCollection<Hotel> Hotels { get; set; }
 
-        public ObservableCollection<Room> 
+        public ObservableCollection<Room> Rooms { get; set; }
 
         private HotelCatalogSingleton()
         {

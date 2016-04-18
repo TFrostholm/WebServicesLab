@@ -128,6 +128,37 @@ namespace HotelMVVM.Persistency
                 }
             }
         }
+
+
+        /// <summary>
+        /// Gets all rooms from all hotels
+        /// </summary>
+        /// <returns></returns>
+        public List<Room> GetRooms()
+        {
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(ServerUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                try
+                {
+                    var response = client.GetAsync("api/Rooms").Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var roomList = response.Content.ReadAsAsync<IEnumerable<Room>>().Result;
+                        return roomList.ToList();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    new MessageDialog(ex.Message).ShowAsync();
+                }
+                return null;
+            }
+        }
     }
 }
 
