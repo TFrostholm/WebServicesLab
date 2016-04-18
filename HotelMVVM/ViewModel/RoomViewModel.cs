@@ -8,12 +8,12 @@ namespace HotelMVVM.ViewModel
     {
         public HotelCatalogSingleton HotelCatalogSingleton { get; set; }
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         public RoomViewModel()
         {
-            HotelCatalogSingleton = HotelCatalogSingleton.Instance;
+            HotelCatalogSingleton = HotelCatalogSingleton.Instance;           
+
+            //Creates an instance of the newHotel
+            _newRoom = new Room();
         }
 
         private Room _newRoom;
