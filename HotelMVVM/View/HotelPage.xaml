@@ -18,7 +18,7 @@
             <AppBarButton Label="Rooms" Icon="Switch">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
-                        <Core:NavigateToPageAction/>
+                        <Core:NavigateToPageAction TargetPage="HotelMVVM.View.RoomPage"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
