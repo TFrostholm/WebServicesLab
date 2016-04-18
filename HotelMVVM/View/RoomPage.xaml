@@ -5,11 +5,31 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ViewModel="using:HotelMVVM.ViewModel"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="HotelMVVM.View.RoomPage"
     mc:Ignorable="d">
+    
     <Page.DataContext>
         <ViewModel:RoomViewModel/>
     </Page.DataContext>
+
+    <Page.TopAppBar>
+        <CommandBar IsOpen="True" FlowDirection="RightToLeft">
+            <CommandBar.Content>
+                <Grid>
+                    <AutoSuggestBox></AutoSuggestBox>
+                </Grid>
+            </CommandBar.Content>
+            <AppBarButton Icon="Switch" Label="Hotels">
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="HotelMVVM.View.HotelPage"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </AppBarButton>
+        </CommandBar>
+    </Page.TopAppBar>
 
     <Grid Background="LightGoldenrodYellow">
         <ListView 

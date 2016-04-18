@@ -13,6 +13,22 @@
         <viewModel:HotelViewModel/>
     </Page.DataContext>
 
+    <Page.TopAppBar>
+        <CommandBar IsOpen="True" FlowDirection="RightToLeft">
+            <CommandBar.Content>
+                <Grid>
+                    <AutoSuggestBox IsEnabled="False"></AutoSuggestBox>
+                </Grid>
+            </CommandBar.Content>
+            <AppBarButton Icon="Switch" Label="Rooms">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:NavigateToPageAction TargetPage="HotelMVVM.View.RoomPage"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </AppBarButton>
+        </CommandBar>
+    </Page.TopAppBar>
 
     <Grid Background="White">
         <ListView 
